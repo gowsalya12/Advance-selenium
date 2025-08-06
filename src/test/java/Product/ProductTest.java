@@ -15,7 +15,7 @@ import ObjectRepositiers.Productpage;
 public class ProductTest extends BaceClass {
 	
 	
-	@Test
+	@Test(groups = "smoke")
 	  public void tocreateproduct() throws IOException, InterruptedException {
 		
 		

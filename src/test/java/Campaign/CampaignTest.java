@@ -15,7 +15,7 @@ import ObjectRepositiers.Homepage;
 
 public class CampaignTest extends BaceClass {
 	
-	  @Test(priority = 1)
+	  @Test(groups = "smoke")
 		public void tocreatecampaignwithmftest() throws IOException  {
 			PropertiesfileUtility putil=new PropertiesfileUtility();
 			ExcelFileUtility eutil=new ExcelFileUtility();
@@ -54,7 +54,7 @@ public class CampaignTest extends BaceClass {
 	  
 
 
-		@Test(priority = 2)
+		@Test(groups = "regression")
 		public void tocreatecampaignwithstatus() throws IOException{
 			PropertiesfileUtility putil=new PropertiesfileUtility();
 			ExcelFileUtility eutil=new ExcelFileUtility();
@@ -91,7 +91,7 @@ public class CampaignTest extends BaceClass {
 		}
 		
 		
-		@Test(priority = 3)
+		@Test(groups = "smoke")
 		public void tocreatecampaignwithexpecteddate() throws IOException {
 			PropertiesfileUtility putil = new PropertiesfileUtility();
 			ExcelFileUtility eutil = new ExcelFileUtility();

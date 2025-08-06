@@ -25,13 +25,13 @@ public class BaceClass {
 	public PropertiesfileUtility putil=new PropertiesfileUtility();
 	public WebdriverUtility wutil=new WebdriverUtility();
 	
-	@BeforeSuite
+	@BeforeSuite(groups = {"smoke","regression"})
 	public void beforesuite()
 	{
 		System.out.println("Db connectivity open");
 	}
 	
-	@BeforeClass
+	@BeforeClass(groups = {"smoke","regression"})
 	public void beforeclass() throws IOException
 	{
 		String BROWSER= putil.togetdataFromPropertiesfile("Browser");
@@ -45,7 +45,7 @@ public class BaceClass {
 	}
 	
 	
-	@BeforeMethod
+	@BeforeMethod(groups = {"smoke","regression"})
 	public void beforemethod() throws IOException
 	{
 		String URL= putil.togetdataFromPropertiesfile("Url");
@@ -63,7 +63,7 @@ public class BaceClass {
 	}
 	
 	
-	@AfterMethod
+	@AfterMethod(groups = {"smoke","regression"})
 	public void aftermethod()
 	{
 		Homepage hp=new Homepage(driver);
@@ -76,7 +76,7 @@ public class BaceClass {
 	}
 	
 	
-	@AfterClass
+	@AfterClass(groups = {"smoke","regression"})
 	public void afterclass()
 	{
 		System.out.println("closing the browser");
@@ -84,7 +84,7 @@ public class BaceClass {
 	}
 	
 	
-	@AfterSuite
+	@AfterSuite(groups = {"smoke","regression"})
 	public void aftersuite()
 	{
 		System.out.println("Db close");
