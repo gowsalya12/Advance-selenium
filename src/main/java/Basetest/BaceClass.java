@@ -13,6 +13,7 @@ import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.Parameters;
 
 import Generic_utility.PropertiesfileUtility;
 import Generic_utility.WebdriverUtility;
@@ -22,6 +23,7 @@ import ObjectRepositiers.Loginpage;
 public class BaceClass {
 	
 	public WebDriver driver=null;
+	public static  WebDriver sdriver=null;//listener
 	public PropertiesfileUtility putil=new PropertiesfileUtility();
 	public WebdriverUtility wutil=new WebdriverUtility();
 	
@@ -34,6 +36,7 @@ public class BaceClass {
 	@BeforeClass(groups = {"smoke","regression"})
 	public void beforeclass() throws IOException
 	{
+		//String BROWSER=browser;
 		String BROWSER= putil.togetdataFromPropertiesfile("Browser");
 		if (BROWSER.equals("Edge")) {
 			driver = new EdgeDriver();
@@ -42,6 +45,8 @@ public class BaceClass {
 			} else if (BROWSER.equals("Firefox")) {
 			driver = new FirefoxDriver();
 			}
+		sdriver=driver;
+		System.out.println("launching the browser");
 	}
 	
 	

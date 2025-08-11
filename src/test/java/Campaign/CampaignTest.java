@@ -3,6 +3,8 @@ package Campaign;
 import java.io.IOException;
 
 import org.openqa.selenium.WebElement;
+import org.testng.Assert;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import Basetest.BaceClass;
@@ -12,7 +14,7 @@ import Generic_utility.WebdriverUtility;
 import Generic_utility.javaUtility;
 import ObjectRepositiers.Campaignpage;
 import ObjectRepositiers.Homepage;
-
+@Listeners(ListenerUtility.ListenerImplementation.class)
 public class CampaignTest extends BaceClass {
 	
 	  @Test(groups = "smoke")
@@ -41,14 +43,8 @@ public class CampaignTest extends BaceClass {
 				WebElement toastmsg= cp.getToastmsg();
 				wutil.waitForVisibilityOfElement(driver, toastmsg);
 				String msg = toastmsg.getText();
-				
-				if (msg.contains(CampaignName)) {
-					System.out.println("campaign created");
-					}
-					else {
-					System.out.println("campaign not created");
-					}
-					cp.getClosemsg().click();
+	            Assert.assertTrue(msg.contains(CampaignName));
+      			cp.getClosemsg().click();
 	}
 	  
 	  
@@ -79,14 +75,8 @@ public class CampaignTest extends BaceClass {
 				WebElement toastmsg= cp.getToastmsg();
 				wutil.waitForVisibilityOfElement(driver, toastmsg);
 				String msg = toastmsg.getText();
-				
-				if (msg.contains(CampaignName)) {
-					System.out.println("campaign created");
-					}
-					else {
-					System.out.println("campaign not created");
-					}
-					cp.getClosemsg().click();
+				Assert.assertTrue(msg.contains(CampaignName));
+				cp.getClosemsg().click();
 					// logout
 		}
 		
@@ -120,12 +110,7 @@ public class CampaignTest extends BaceClass {
 			WebElement toastmsg = cp.getToastmsg();
 			wutil.waitForVisibilityOfElement(driver, toastmsg);
 			String msg = toastmsg.getText();
-			if (msg.contains(CampaignName)) {
-			System.out.println("campaign created");
-			}
-			else {
-			System.out.println("campaign not created");
-			}
+			Assert.assertTrue(msg.contains(CampaignName));
 		    cp.getClosemsg().click();
 		}
 

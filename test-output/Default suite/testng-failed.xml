@@ -6,8 +6,10 @@
       <class name="Campaign.CampaignTest">
         <methods>
           <include name="afterclass"/>
-          <include name="beforeclass"/>
           <include name="aftersuite"/>
+          <include name="beforeclass"/>
+          <include name="tocreatecampaignwithexpecteddate"/>
+          <include name="tocreatecampaignwithmftest"/>
           <include name="beforemethod"/>
           <include name="tocreatecampaignwithstatus"/>
           <include name="beforesuite"/>
